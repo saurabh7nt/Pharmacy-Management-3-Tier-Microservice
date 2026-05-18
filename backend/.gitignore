@@ -1,0 +1,58 @@
+# ===========================
+# Maven
+# ===========================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.jar
+*.war
+*.ear
+*.class
+
+# ===========================
+# Spring Boot
+# ===========================
+application-local.yaml
+application-local.properties
+*.env
+
+# ===========================
+# IntelliJ IDEA
+# ===========================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# ===========================
+# macOS
+# ===========================
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# ===========================
+# Logs
+# ===========================
+logs/
+*.log
+*.log.*
+
+# ===========================
+# Docker (keep docker-compose.yml, ignore overrides)
+# ===========================
+docker-compose.override.yml
+
+# ===========================
+# Environment / Secrets
+# ===========================
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.jks
+secrets/

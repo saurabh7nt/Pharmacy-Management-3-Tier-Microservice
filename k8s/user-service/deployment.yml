@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-deployment
+  labels:
+    app: user-service
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user-service
+        image: saurabh7nt/microservice-user-service:v2
+        ports:
+          - containerPort: 8081
+        env:
+          - name: SPRING_DATASOURCE_URL
+            value: "jdbc:postgresql://postgres-db-svc:5432/microservices_db"
+          - name: SPRING_DATASOURCE_USERNAME
+            value: "admin"
+          - name: SPRING_DATASOURCE_PASSWORD
+            value: "admin123"
+          - name: SPRING_JPA_OPEN_IN_VIEW
+            value: "false"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8081
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8081
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
