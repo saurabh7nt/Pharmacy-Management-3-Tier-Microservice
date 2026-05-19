@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-service-deployment
+  name: medicine-service-deployment
   labels:
-    app: user-service
+    app: medicine-service
 
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: user-service
+      app: medicine-service
   template:
     metadata:
       labels:
-        app: user-service
+        app: medicine-service
     spec:
       containers:
-      - name: user-service
-        image: saurabh7nt/microservice-user-service:v3
+      - name: medicine-service
+        image: saurabh7nt/microservice-medicine-service:v3
         ports:
-          - containerPort: 8081
+          - containerPort: 8082
         env:
           - name: SPRING_DATASOURCE_URL
             value: "jdbc:postgresql://postgres-db-svc:5432/microservices_db"
@@ -32,7 +32,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /actuator/health/liveness
-            port: 8081
+            port: 8082
           initialDelaySeconds: 30
           periodSeconds: 10
           timeoutSeconds: 5
@@ -41,7 +41,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /actuator/health/readiness
-            port: 8081
+            port: 8082
           initialDelaySeconds: 10
           periodSeconds: 5
           timeoutSeconds: 3

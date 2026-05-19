@@ -243,5 +243,3 @@ export async function deleteOrder(id) {
 export async function getPurchaseHistory(userId, startDate, endDate) {
   return extractEnvelope(await orderClient.get(`/user/${userId}/history`, { params: { startDate, endDate } }));
 }
-
-// Made with Bob
