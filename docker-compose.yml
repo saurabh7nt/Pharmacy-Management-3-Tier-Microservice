@@ -3,7 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:16
-    container_name: microservices-postgres
+    container_name: postgres-service
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin123
@@ -17,7 +17,7 @@ services:
   user-service:
     build:
       context: .
-      dockerfile: user-service/Dockerfile
+      dockerfile: backend/user-service/Dockerfile
     container_name: user-service
     ports:
       - "8081:8081"
@@ -33,7 +33,7 @@ services:
   medicine-service:
     build:
       context: .
-      dockerfile: medicine-service/Dockerfile
+      dockerfile: backend/medicine-service/Dockerfile
     container_name: medicine-service
     ports:
       - "8082:8082"
@@ -49,7 +49,7 @@ services:
   order-service:
     build:
       context: .
-      dockerfile: order-service/Dockerfile
+      dockerfile: backend/order-service/Dockerfile
     container_name: order-service
     ports:
       - "8083:8083"
@@ -64,6 +64,17 @@ services:
       - postgres
       - user-service
       - medicine-service
+    restart: unless-stopped
+
+  frontend-service:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: frontend-service
+    ports:
+      - "5173:80"
+    depends_on:
+      - order-service
     restart: unless-stopped
 
 volumes:

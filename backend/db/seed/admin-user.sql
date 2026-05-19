@@ -3,6 +3,7 @@
 -- Raw password for login: Admin@123
 
 INSERT INTO users (
+    id,
     first_name,
     last_name,
     username,
@@ -14,6 +15,7 @@ INSERT INTO users (
     active
 )
 SELECT
+    NEXTVAL('users_id_seq'),
     'System',
     'Admin',
     'admin',

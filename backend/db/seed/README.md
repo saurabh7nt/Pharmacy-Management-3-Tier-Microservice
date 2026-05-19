@@ -31,17 +31,17 @@ docker compose up -d postgres
 
 ### Copy the seed files into the container and run them
 ```bash
-docker cp db/seed/medicines.sql microservices-postgres:/tmp/medicines.sql
-docker cp db/seed/admin-user.sql microservices-postgres:/tmp/admin-user.sql
+docker cp db/seed/medicines.sql postgres-service:/tmp/medicines.sql
+docker cp db/seed/admin-user.sql postgres-service:/tmp/admin-user.sql
 
-docker exec -it microservices-postgres psql -U admin -d microservices_db -f /tmp/medicines.sql
-docker exec -it microservices-postgres psql -U admin -d microservices_db -f /tmp/admin-user.sql
+docker exec -it postgres-service psql -U admin -d microservices_db -f /tmp/medicines.sql
+docker exec -it postgres-service psql -U admin -d microservices_db -f /tmp/admin-user.sql
 ```
 
 ### Verify inserted records
 ```bash
-docker exec -it microservices-postgres psql -U admin -d microservices_db -c "SELECT id, name, category, price, quantity, available FROM medicines ORDER BY id;"
-docker exec -it microservices-postgres psql -U admin -d microservices_db -c "SELECT id, username, email, role, active FROM users ORDER BY id;"
+docker exec -it postgres-service psql -U admin -d microservices_db -c "SELECT id, name, category, price, quantity, available FROM medicines ORDER BY id;"
+docker exec -it postgres-service psql -U admin -d microservices_db -c "SELECT id, username, email, role, active FROM users ORDER BY id;"
 ```
 
 ---
@@ -69,8 +69,8 @@ If you want to clear medicines and reload the seed:
 
 ### Using Docker container
 ```bash
-docker exec -it microservices-postgres psql -U admin -d microservices_db -c "DELETE FROM medicines;"
-docker exec -it microservices-postgres psql -U admin -d microservices_db -f /tmp/medicines.sql
+docker exec -it postgres-service psql -U admin -d microservices_db -c "DELETE FROM medicines;"
+docker exec -it postgres-service psql -U admin -d microservices_db -f /tmp/medicines.sql
 ```
 
 ### Using local psql
@@ -101,11 +101,11 @@ cd ../order-service && ./mvnw spring-boot:run
 Then load seed data:
 ```bash
 cd /Users/saurabhtajane/Learn/capstone-project/backend
-docker cp db/seed/medicines.sql microservices-postgres:/tmp/medicines.sql
-docker cp db/seed/admin-user.sql microservices-postgres:/tmp/admin-user.sql
+docker cp db/seed/medicines.sql postgres-service:/tmp/medicines.sql
+docker cp db/seed/admin-user.sql postgres-service:/tmp/admin-user.sql
 
-docker exec -it microservices-postgres psql -U admin -d microservices_db -f /tmp/medicines.sql
-docker exec -it microservices-postgres psql -U admin -d microservices_db -f /tmp/admin-user.sql
+docker exec -it postgres-service psql -U admin -d microservices_db -f /tmp/medicines.sql
+docker exec -it postgres-service psql -U admin -d microservices_db -f /tmp/admin-user.sql
 ```
 
 Default admin seed credentials:
