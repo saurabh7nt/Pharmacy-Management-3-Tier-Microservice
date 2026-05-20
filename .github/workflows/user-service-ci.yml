@@ -1,0 +1,36 @@
+name: order-service-ci
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'backend/order-service/**'
+      - 'backend/common/**'
+      - 'backend/pom.xml'
+
+  pull_request:
+    paths:
+      - 'backend/order-service/**'
+      - 'backend/common/**'
+      - 'backend/pom.xml'
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout required code files
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            backend/order-service
+            backend/common
+            backend/pom.xml
+
+      - name: Verify structure
+        run: ls -R
+
+      - name: Build service
+        run: |
+          cd backend
+          echo "Building order service..."
