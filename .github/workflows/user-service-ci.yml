@@ -29,23 +29,14 @@ jobs:
             backend/common
             backend/pom.xml
 
-      - name: Verify structure
-        run: ls -R
-
-      - name: Build service
-        uses: actions/checkout@v6
-
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
           cache: maven
 
       - name: Build with Maven
         run: |
-          echo "Printing mvn version.."
-          mvn --version
-          echo "Printing java version.."
-          java --version
+          mvn clean install -pl order-service -am -DskipTest
 
