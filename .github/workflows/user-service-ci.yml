@@ -38,5 +38,6 @@ jobs:
 
       - name: Build with Maven
         run: |
-          mvn clean install -pl order-service -am -DskipTest
+          cd backend
+          mvn clean install -pl order-service -am -DskipTests
 
