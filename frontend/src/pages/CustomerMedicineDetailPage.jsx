@@ -92,4 +92,4 @@ function CustomerMedicineDetailPage() {
 
 export default CustomerMedicineDetailPage;
 
-// Made with Bob
+

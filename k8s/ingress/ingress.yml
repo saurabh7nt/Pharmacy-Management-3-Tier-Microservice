@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: microservice-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /api/users
+        pathType: Prefix
+        backend:
+          service:
+            name: user-service-svc
+            port:
+              number: 8081
+
+      - path: /api/medicines
+        pathType: Prefix
+        backend:
+          service:
+            name: medicine-service-svc
+            port:
+              number: 8082
+
+      - path: /api/orders
+        pathType: Prefix
+        backend:
+          service:
+            name: order-service-svc
+            port:
+              number: 8083
+
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-service-svc
+            port:
+              number: 5714

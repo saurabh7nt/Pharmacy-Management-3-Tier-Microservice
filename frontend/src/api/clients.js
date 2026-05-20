@@ -13,17 +13,32 @@ function createClient(baseURL) {
   });
 }
 
-// Detect environment: if running on localhost:5173 (Vite dev server), use localhost backend URLs
-// Otherwise, use relative URLs (production/Kubernetes) - Nginx will proxy to backend services
-const isDevelopment = window.location.hostname === 'localhost' && window.location.port === '5173';
+// Development = local Vite frontend
+const isDevelopment =
+  window.location.hostname === 'localhost' &&
+  window.location.port === '5173';
 
-const USER_SERVICE_URL = isDevelopment ? 'http://localhost:8081' : '';
-const MEDICINE_SERVICE_URL = isDevelopment ? 'http://localhost:8082' : '';
-const ORDER_SERVICE_URL = isDevelopment ? 'http://localhost:8083' : '';
+// Development URLs
+const USER_SERVICE_URL = 'http://localhost:8081/api/users';
+const MEDICINE_SERVICE_URL = 'http://localhost:8082/api/medicines';
+const ORDER_SERVICE_URL = 'http://localhost:8083/api/orders';
 
-export const userClient = createClient(`${USER_SERVICE_URL}/api/users`);
-export const medicineClient = createClient(`${MEDICINE_SERVICE_URL}/api/medicines`);
-export const orderClient = createClient(`${ORDER_SERVICE_URL}/api/orders`);
+// Production/Kubernetes ingress URLs
+const USER_INGRESS_URL = '/api/users';
+const MEDICINE_INGRESS_URL = '/api/medicines';
+const ORDER_INGRESS_URL = '/api/orders';
+
+export const userClient = createClient(
+  isDevelopment ? USER_SERVICE_URL : USER_INGRESS_URL
+);
+
+export const medicineClient = createClient(
+  isDevelopment ? MEDICINE_SERVICE_URL : MEDICINE_INGRESS_URL
+);
+
+export const orderClient = createClient(
+  isDevelopment ? ORDER_SERVICE_URL : ORDER_INGRESS_URL
+);
 
 export function extractEnvelope(response) {
   const payload = response?.data;

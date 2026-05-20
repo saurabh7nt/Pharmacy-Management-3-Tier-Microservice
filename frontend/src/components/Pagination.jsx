@@ -32,4 +32,4 @@ function Pagination({ currentPage = 0, totalPages = 1, onPageChange }) {
 
 export default Pagination;
 
-// Made with Bob
+

@@ -16,4 +16,4 @@ function Modal({ title, children, onClose }) {
 
 export default Modal;
 
-// Made with Bob
+

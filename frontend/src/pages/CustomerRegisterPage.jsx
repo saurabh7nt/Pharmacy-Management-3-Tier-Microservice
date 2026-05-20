@@ -125,4 +125,4 @@ function CustomerRegisterPage() {
 
 export default CustomerRegisterPage;
 
-// Made with Bob
+

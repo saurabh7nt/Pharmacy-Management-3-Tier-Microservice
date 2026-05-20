@@ -192,4 +192,4 @@ export const userRoles = ['CUSTOMER', 'ADMIN', 'PHARMACIST'];
 export const orderStatuses = ['PENDING', 'CONFIRMED', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED'];
 export const paymentMethods = ['CREDIT_CARD', 'DEBIT_CARD', 'CASH', 'UPI'];
 
-// Made with Bob
+
