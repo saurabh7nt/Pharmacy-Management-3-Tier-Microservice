@@ -124,3 +124,26 @@ jobs:
           tags: |
             saurabh7nt/microservice-medicine-service:latest
             saurabh7nt/microservice-medicine-service:${{ github.sha }}
+
+  update-image-tag:
+    runs-on: ubuntu-latest
+    needs: docker
+    env:
+      DOCKER_IMAGE: saurabh7nt/microservice-medicine-service
+      ARGOCD_GIT_BRANCH: main
+    steps:
+      - name: Checkout Argo CD repo
+        uses: actions/checkout@v4
+        with:
+          repository: saurabh7nt/K8s-ArgoCD
+          ref: main
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Update image tag
+        run: |
+          IMAGE_TAG="${GITHUB_SHA}"
+          sed -i "s|image: .*medicine-service:.*|image: ${DOCKER_IMAGE}:${IMAGE_TAG}|g" k8s/medicine-service/deployment.yml
+          git config user.name "GitHub Actions[CI Bot]"
+          git config user.email "actions@github.com"
+          git add k8s/medicine-service/deployment.yml
+          git commit -m "Update microservice-medicine-service image to ${IMAGE_TAG}"
+          git push origin main
