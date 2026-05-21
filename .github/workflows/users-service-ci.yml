@@ -31,6 +31,7 @@ jobs:
 
   build-test:
     runs-on: ubuntu-latest
+    needs: git-leaks
     steps:
       - name: Checkout required code files
         uses: actions/checkout@v6
