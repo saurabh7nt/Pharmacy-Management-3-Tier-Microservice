@@ -36,10 +36,18 @@ jobs:
       contents: read          # Required to checkout and read repo files
       security-events: write  # Required to upload SARIF files to Security tab
     steps:
+
+    - name: Checkout required code files
+      uses: actions/checkout@v6
+      with:
+        sparse-checkout: |
+          backend
+
     - name: Run Trivy vulnerability scanner in repo mode
       uses: aquasecurity/trivy-action@v0.36.0
       with:
         scan-type: 'fs'
+        scan-ref: './backend/user-service'
         ignore-unfixed: true
         format: 'sarif'
         output: 'trivy-results.sarif'
