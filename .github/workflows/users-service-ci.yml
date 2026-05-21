@@ -121,6 +121,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v7
         with:
-          context: ./backend/user-service/Dockerfile
+          context: .
+          file: ./backend/user-service/Dockerfile
           push: true
           tags: user/app:latest
