@@ -89,7 +89,13 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Compile code
+        working-directory: './backend/user-service'
+        run: mvn compile
+
       - name: Build with Maven
+        working-directory: './backend'
         run: |
-          cd backend
-          mvn clean install -pl user-service -am -DskipTests    
+          mvn clean install -pl user-service -am -DskipTests
+
+
