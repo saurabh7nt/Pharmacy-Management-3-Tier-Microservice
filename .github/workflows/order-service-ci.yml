@@ -123,4 +123,4 @@ jobs:
           push: true
           tags: |
             saurabh7nt/order-service:latest
-            saurabh7nt/order-service:${{ github.sha }}
+            saurabh7nt/microservice-order-service:${{ github.sha }}

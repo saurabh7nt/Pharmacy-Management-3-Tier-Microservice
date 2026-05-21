@@ -123,4 +123,4 @@ jobs:
           push: true
           tags: |
             saurabh7nt/medicine-service:latest
-            saurabh7nt/medicine-service:${{ github.sha }}
+            saurabh7nt/microservice-medicine-service:${{ github.sha }}

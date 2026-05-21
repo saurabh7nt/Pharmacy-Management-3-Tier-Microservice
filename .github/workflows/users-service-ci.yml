@@ -123,4 +123,4 @@ jobs:
           push: true
           tags: |
             saurabh7nt/user-service:latest
-            saurabh7nt/user-service:${{ github.sha }}
+            saurabh7nt/microservice-user-service:${{ github.sha }}
