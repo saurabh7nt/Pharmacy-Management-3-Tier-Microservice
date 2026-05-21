@@ -124,4 +124,6 @@ jobs:
           context: .
           file: ./backend/user-service/Dockerfile
           push: true
-          tags: user/app:latest
+          tags: |
+            saurabh7nt/user-service:latest
+            saurabh7nt/user-service:${{ github.sha }}
