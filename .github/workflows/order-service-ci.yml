@@ -122,5 +122,5 @@ jobs:
           file: ./backend/order-service/Dockerfile
           push: true
           tags: |
-            saurabh7nt/order-service:latest
+            saurabh7nt/microservice-order-service:latest
             saurabh7nt/microservice-order-service:${{ github.sha }}
