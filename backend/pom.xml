@@ -33,6 +33,9 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <!-- Security fixes -->
+        <tomcat.version>11.0.22</tomcat.version>
+        <postgresql.version>42.7.11</postgresql.version>
     </properties>
 
 </project>
