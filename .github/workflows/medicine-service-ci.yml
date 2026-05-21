@@ -85,13 +85,9 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
+          java-version: '17'
           distribution: 'temurin'
           cache: maven
-
-      - name: Compile code
-        working-directory: './backend/medicine-service'
-        run: mvn compile
 
       - name: Build with Maven
         working-directory: './backend'
