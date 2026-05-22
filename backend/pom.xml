@@ -20,7 +20,6 @@
         <module>user-service</module>
     </modules>
 
-    <!-- Inherit Spring Boot's dependency management -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
