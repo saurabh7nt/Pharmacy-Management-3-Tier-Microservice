@@ -144,7 +144,7 @@ jobs:
           severity: 'HIGH,CRITICAL'
           ignore-unfixed: true
           exit-code: '1'
-          trivyignores: .trivyignore
+          trivyignores: backend/.trivyignore
           format: 'table'
           
 
