@@ -140,7 +140,7 @@ jobs:
         uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: 'image'
-          image-ref: 'saurabh7nt/microservice-user-service:${{ github.sha }}'
+          image-ref: 'saurabh7nt/microservice-order-service:${{ github.sha }}'
           severity: 'HIGH,CRITICAL'
           ignore-unfixed: true
           exit-code: '1'
