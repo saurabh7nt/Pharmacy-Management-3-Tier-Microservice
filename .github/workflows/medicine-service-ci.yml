@@ -121,6 +121,7 @@ jobs:
           context: .
           file: ./backend/medicine-service/Dockerfile
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: |
             saurabh7nt/microservice-medicine-service:latest
             saurabh7nt/microservice-medicine-service:${{ github.sha }}
