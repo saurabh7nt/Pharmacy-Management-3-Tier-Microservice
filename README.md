@@ -1,23 +1,85 @@
-# 🏥 Pharmacy Management System - 3-Tier Microservices Architecture
+# Pharmacy Management System - 3-Tier Microservices Architecture
+
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=github-actions&logoColor=white)](https://github.com/features/actions)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-Deployable-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.6-6DB33F?logo=spring-boot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
 A modern, cloud-native pharmacy management system built with microservices architecture, featuring separate services for user management, medicine inventory, and order processing. The system includes a React-based frontend and is fully containerized with Docker and deployable to Kubernetes.
 
-## 📋 Table of Contents
+## Quick Links
 
-- [Architecture Overview](#architecture-overview)
-- [Tech Stack](#tech-stack)
+- [📖 Getting Started](./docs/GETTING_STARTED.md) - Setup and run the application
+- [🏗️ Architecture](./docs/ARCHITECTURE.md) - System design and architecture
+- [🛠️ Tech Stack](./docs/TECH_STACK.md) - Technologies and tools used
+- [📚 API Documentation](./docs/API_DOCUMENTATION.md) - Complete API reference
+- [🚢 Deployment Guide](./docs/DEPLOYMENT.md) - Deploy to production
+- [🔄 CI/CD Pipeline](./docs/CICD.md) - Automated deployment pipeline
+
+## Table of Contents
+
+- [Overview](#overview)
 - [Features](#features)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Quick Start](#quick-start)
 - [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [API Documentation](#api-documentation)
-- [Deployment](#deployment)
-- [CI/CD Pipeline](#cicd-pipeline)
-- [Monitoring](#monitoring)
+- [Documentation](#documentation)
 
-## 🏗️ Architecture Overview
+## Overview
 
-This application follows a **3-tier microservices architecture**:
+This Pharmacy Management System demonstrates a production-ready microservices architecture with:
+
+- **3-Tier Architecture**: Frontend, Backend Services, Database
+- **Microservices**: Independent, scalable services
+- **Containerization**: Docker and Docker Compose
+- **Orchestration**: Kubernetes with Helm charts
+- **CI/CD**: Automated pipelines with GitHub Actions
+- **Security**: Vulnerability scanning with Trivy and Gitleaks
+- **Monitoring**: Prometheus metrics and health checks
+- **GitOps**: ArgoCD for declarative deployments
+
+## Features
+
+### User Management
+- User registration and authentication
+- Role-based access control (ADMIN/CUSTOMER)
+- Profile management
+- User search and filtering
+
+### Medicine Inventory
+- Complete medicine catalog
+- Stock management
+- Category-based organization
+- Search and filter capabilities
+- Availability tracking
+
+### Order Processing
+- Shopping cart functionality
+- Order placement and tracking
+- Order history
+- Status management (PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED)
+- Integration with user and medicine services
+
+### Frontend
+- Modern React-based UI
+- Responsive design
+- Customer portal
+- Admin dashboard
+- Real-time updates
+
+### Technical Features
+- RESTful APIs
+- Pagination support
+- Health checks and metrics
+- CORS configuration
+- Multi-stage Docker builds
+- Kubernetes-ready deployments
+- Automated CI/CD pipelines
+
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -44,393 +106,162 @@ This application follows a **3-tier microservices architecture**:
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Microservices
-
-1. **User Service** (Port 8081)
-   - User registration and authentication
-   - User profile management
-   - Role-based access control (ADMIN/CUSTOMER)
-   - User search and filtering
-
-2. **Medicine Service** (Port 8082)
-   - Medicine inventory management
-   - Stock tracking and updates
-   - Medicine search and categorization
-   - Availability management
-
-3. **Order Service** (Port 8083)
-   - Order creation and management
-   - Order status tracking
-   - Integration with User and Medicine services
-   - Order history and analytics
-
-4. **Frontend Service** (Port 5173/80)
-   - Customer portal for browsing and ordering medicines
-   - Admin dashboard for managing users, medicines, and orders
-   - Shopping cart functionality
-   - Responsive UI with React
+**[Architecture →](./docs/ARCHITECTURE.md)**
 
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Framework**: Spring Boot 4.0.6
-- **Language**: Java 17
-- **Build Tool**: Maven (Multi-module project)
-- **Database**: PostgreSQL 16
-- **ORM**: Spring Data JPA / Hibernate
-- **API**: RESTful APIs
-- **Validation**: Jakarta Validation
-- **Monitoring**: Spring Boot Actuator + Prometheus
+- **Spring Boot 4.0.6** - Enterprise Java framework
+- **Java 17** - Programming language
+- **PostgreSQL 16** - Relational database
+- **Maven** - Build and dependency management
+- **Spring Data JPA** - Data access layer
+- **Lombok** - Reduce boilerplate code
 
 ### Frontend
-- **Framework**: React 19.2.0
-- **Build Tool**: Vite 7.1.12
-- **Routing**: React Router DOM 7.9.4
-- **HTTP Client**: Axios 1.13.2
-- **Web Server**: Nginx (Production)
+- **React 19.2.0** - UI library
+- **Vite 7.1.12** - Build tool
+- **React Router 7.9.4** - Routing
+- **Axios 1.13.2** - HTTP client
+- **Nginx** - Web server (production)
 
-### DevOps & Infrastructure
-- **Containerization**: Docker
-- **Orchestration**: Kubernetes
-- **Ingress**: Nginx Ingress Controller
-- **CI/CD**: GitHub Actions
-- **Security Scanning**: Trivy, Gitleaks
-- **GitOps**: ArgoCD
-- **Container Registry**: Docker Hub
+### DevOps
+- **Docker** - Containerization
+- **Kubernetes** - Orchestration
+- **GitHub Actions** - CI/CD
+- **ArgoCD** - GitOps
+- **Trivy** - Security scanning
+- **Prometheus** - Metrics
 
-## ✨ Features
+**[View complete tech stack →](./docs/TECH_STACK.md)**
 
-### Customer Features
-- 🔐 User registration and login
-- 🔍 Browse and search medicines
-- 🛒 Shopping cart management
-- 📦 Place and track orders
-- 📋 View order history
-- 💊 View medicine details and availability
+## Quick Start
 
-### Admin Features
-- 👥 User management (CRUD operations)
-- 💊 Medicine inventory management
-- 📊 Order management and status updates
-- 📈 Dashboard with analytics
-- 🔍 Advanced search and filtering
-- 📄 Pagination support
+### Prerequisites
 
-### Technical Features
-- 🔄 RESTful API design
-- 🔒 CORS configuration
-- 📊 Health checks and metrics
-- 🐳 Docker containerization
-- ☸️ Kubernetes deployment
-- 🔄 CI/CD automation
-- 🔐 Security scanning
-- 📦 Multi-stage Docker builds
-- 🌐 Ingress routing
+- Docker and Docker Compose
+- Java 17+ (for local development)
+- Node.js 22+ (for local development)
+- Maven 3.8+ (for local development)
 
-## 📁 Project Structure
+### Run with Docker Compose (Recommended)
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd Pharmacy-Management-3-Tier-Microservice
+
+# Start all services
+docker-compose up -d
+
+# Load seed data (optional)
+docker cp backend/db/seed/medicines.sql postgres-service:/tmp/medicines.sql
+docker cp backend/db/seed/admin-user.sql postgres-service:/tmp/admin-user.sql
+docker exec -it postgres-service psql -U admin -d microservices_db -f /tmp/medicines.sql
+docker exec -it postgres-service psql -U admin -d microservices_db -f /tmp/admin-user.sql
+
+# Access the application
+# Frontend: http://localhost:5173
+# User Service: http://localhost:8081
+# Medicine Service: http://localhost:8082
+# Order Service: http://localhost:8083
+```
+
+### Default Admin Credentials
+
+After loading seed data:
+```
+Username: admin
+Email: admin@pharmacy.local
+Password: Admin@123
+Role: ADMIN
+```
+
+**[Detailed setup instructions →](./docs/GETTING_STARTED.md)**
+
+## Project Structure
 
 ```
 Pharmacy-Management-3-Tier-Microservice/
 ├── backend/
 │   ├── common/                      # Shared DTOs and exceptions
-│   │   └── src/main/java/com/example/common/
-│   │       ├── dto/                 # Data Transfer Objects
-│   │       └── exception/           # Common exceptions
 │   ├── user-service/                # User management microservice
-│   │   ├── src/main/java/com/example/user_service/
-│   │   │   ├── controller/          # REST controllers
-│   │   │   ├── service/             # Business logic
-│   │   │   ├── repository/          # Data access layer
-│   │   │   ├── entity/              # JPA entities
-│   │   │   └── dto/                 # Service-specific DTOs
-│   │   └── Dockerfile
 │   ├── medicine-service/            # Medicine inventory microservice
-│   │   ├── src/main/java/com/example/medicine_service/
-│   │   └── Dockerfile
 │   ├── order-service/               # Order processing microservice
-│   │   ├── src/main/java/com/example/order_service/
-│   │   └── Dockerfile
 │   ├── db/seed/                     # Database seed files
-│   │   ├── medicines.sql
-│   │   ├── admin-user.sql
-│   │   └── README.md
 │   └── pom.xml                      # Parent POM
 ├── frontend/
 │   ├── src/
-│   │   ├── api/                     # API client configuration
-│   │   ├── components/              # Reusable React components
-│   │   ├── context/                 # React Context providers
+│   │   ├── api/                     # API clients
+│   │   ├── components/              # React components
 │   │   ├── pages/                   # Page components
-│   │   ├── styles/                  # CSS styles
-│   │   └── utils/                   # Utility functions
+│   │   └── context/                 # State management
 │   ├── Dockerfile
-│   ├── nginx.conf
 │   └── package.json
 ├── k8s/                             # Kubernetes manifests
-│   ├── frontend-service/
 │   ├── user-service/
 │   ├── medicine-service/
 │   ├── order-service/
+│   ├── frontend-service/
 │   ├── postgres/
 │   └── ingress/
 ├── .github/workflows/               # CI/CD pipelines
-│   ├── frontend-service-ci.yml
-│   ├── users-service-ci.yml
-│   ├── medicine-service-ci.yml
-│   └── order-service-ci.yml
-├── docker-compose.yml               # Local development setup
+├── docs/                            # Documentation
+├── docker-compose.yml
 └── README.md
 ```
 
-## 📋 Prerequisites
+## Documentation
 
-- **Java 17** or higher
-- **Maven 3.8+**
-- **Node.js 22** or higher
-- **Docker** and **Docker Compose**
-- **PostgreSQL 16** (if running locally without Docker)
-- **Kubernetes cluster** (for K8s deployment)
-- **kubectl** (for K8s deployment)
+### Core Documentation
+- **[Getting Started Guide](./docs/GETTING_STARTED.md)** - Setup, installation, and first steps
+- **[Architecture Documentation](./docs/ARCHITECTURE.md)** - System design, patterns, and decisions
+- **[Technology Stack](./docs/TECH_STACK.md)** - Detailed tech stack information
 
-## 🚀 Getting Started
+### Development
+- **[API Documentation](./docs/API_DOCUMENTATION.md)** - Complete API reference for all services
+- **[Database Seed Guide](./backend/db/seed/README.md)** - How to load sample data
 
-### Option 1: Docker Compose (Recommended for Development)
+### Operations
+- **[Deployment Guide](./docs/DEPLOYMENT.md)** - Docker and Kubernetes deployment
+- **[CI/CD Pipeline](./docs/CICD.md)** - Automated build and deployment
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd Pharmacy-Management-3-Tier-Microservice
-   ```
+## API Endpoints
 
-2. **Start all services**
-   ```bash
-   docker-compose up -d
-   ```
+### User Service (Port 8081)
+- `POST /api/users/register` - Register new user
+- `GET /api/users/{id}` - Get user by ID
+- `GET /api/users` - Get all users (paginated)
+- `PUT /api/users/{id}` - Update user
+- `DELETE /api/users/{id}` - Delete user
 
-3. **Wait for services to be ready** (check logs)
-   ```bash
-   docker-compose logs -f
-   ```
+### Medicine Service (Port 8082)
+- `POST /api/medicines` - Create medicine
+- `GET /api/medicines/{id}` - Get medicine by ID
+- `GET /api/medicines` - Get all medicines (paginated)
+- `PUT /api/medicines/{id}` - Update medicine
+- `PATCH /api/medicines/{id}/stock` - Update stock
 
-4. **Load seed data** (optional but recommended)
-   ```bash
-   # Copy seed files to PostgreSQL container
-   docker cp backend/db/seed/medicines.sql postgres-service:/tmp/medicines.sql
-   docker cp backend/db/seed/admin-user.sql postgres-service:/tmp/admin-user.sql
+### Order Service (Port 8083)
+- `POST /api/orders` - Create order
+- `GET /api/orders/{id}` - Get order by ID
+- `GET /api/orders/user/{userId}` - Get user orders
+- `PUT /api/orders/{id}/status` - Update order status
 
-   # Execute seed files
-   docker exec -it postgres-service psql -U admin -d microservices_db -f /tmp/medicines.sql
-   docker exec -it postgres-service psql -U admin -d microservices_db -f /tmp/admin-user.sql
-   ```
+**[Complete API documentation →](./docs/API_DOCUMENTATION.md)**
 
-5. **Access the application**
-   - Frontend: http://localhost:5173
-   - User Service: http://localhost:8081
-   - Medicine Service: http://localhost:8082
-   - Order Service: http://localhost:8083
+## Security
 
-6. **Default Admin Credentials** (after loading seed data)
-   ```
-   Username: admin
-   Email: admin@pharmacy.local
-   Password: Admin@123
-   Role: ADMIN
-   ```
+- **Trivy Scanning** - Vulnerability detection in code and images
+- **Gitleaks** - Secret detection in commits
+- **CORS Configuration** - Cross-origin request handling
+- **Input Validation** - Jakarta Validation on all endpoints
+- **Security Updates** - Regular dependency updates
 
-### Option 2: Local Development (Without Docker)
+## Monitoring
 
-1. **Start PostgreSQL**
-   ```bash
-   # Using Docker
-   docker run -d \
-     --name postgres-local \
-     -e POSTGRES_USER=admin \
-     -e POSTGRES_PASSWORD=admin123 \
-     -e POSTGRES_DB=microservices_db \
-     -p 5432:5432 \
-     postgres:16
-   ```
+All services expose health and metrics endpoints:
 
-2. **Build and run backend services**
-   ```bash
-   cd backend
-
-   # Build all services
-   mvn clean install
-
-   # Run each service in separate terminals
-   cd user-service && mvn spring-boot:run
-   cd medicine-service && mvn spring-boot:run
-   cd order-service && mvn spring-boot:run
-   ```
-
-3. **Run frontend**
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
-
-4. **Load seed data**
-   ```bash
-   psql -h localhost -U admin -d microservices_db -f backend/db/seed/medicines.sql
-   psql -h localhost -U admin -d microservices_db -f backend/db/seed/admin-user.sql
-   ```
-
-### Option 3: Kubernetes Deployment
-
-1. **Apply Kubernetes manifests**
-   ```bash
-   kubectl apply -f k8s/postgres/
-   kubectl apply -f k8s/user-service/
-   kubectl apply -f k8s/medicine-service/
-   kubectl apply -f k8s/order-service/
-   kubectl apply -f k8s/frontend-service/
-   kubectl apply -f k8s/ingress/
-   ```
-
-2. **Verify deployments**
-   ```bash
-   kubectl get pods
-   kubectl get services
-   kubectl get ingress
-   ```
-
-3. **Access via Ingress**
-   - Configure your `/etc/hosts` or DNS to point to the Ingress IP
-   - Access the application through the configured domain
-
-## 📚 API Documentation
-
-### User Service API (Port 8081)
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/users/register` | Register new user |
-| GET | `/api/users/{id}` | Get user by ID |
-| GET | `/api/users/email/{email}` | Get user by email |
-| GET | `/api/users` | Get all users (paginated) |
-| GET | `/api/users/role/{role}` | Get users by role |
-| GET | `/api/users/search?keyword={keyword}` | Search users |
-| PUT | `/api/users/{id}` | Update user |
-| DELETE | `/api/users/{id}` | Delete user (soft delete) |
-| GET | `/api/users/check/email?email={email}` | Check if email exists |
-| GET | `/api/users/check/username?username={username}` | Check if username exists |
-
-### Medicine Service API (Port 8082)
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/medicines` | Create new medicine |
-| GET | `/api/medicines/{id}` | Get medicine by ID |
-| GET | `/api/medicines` | Get all medicines (paginated) |
-| GET | `/api/medicines/category/{category}` | Get medicines by category |
-| GET | `/api/medicines/search?keyword={keyword}` | Search medicines |
-| GET | `/api/medicines/available` | Get available medicines |
-| PUT | `/api/medicines/{id}` | Update medicine |
-| PATCH | `/api/medicines/{id}/stock` | Update medicine stock |
-| DELETE | `/api/medicines/{id}` | Delete medicine |
-
-### Order Service API (Port 8083)
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/orders` | Create new order |
-| GET | `/api/orders/{id}` | Get order by ID |
-| GET | `/api/orders` | Get all orders (paginated) |
-| GET | `/api/orders/user/{userId}` | Get orders by user |
-| GET | `/api/orders/status/{status}` | Get orders by status |
-| PUT | `/api/orders/{id}/status` | Update order status |
-| DELETE | `/api/orders/{id}` | Cancel order |
-
-### Health Check Endpoints
-
-All services expose actuator endpoints:
-- `/actuator/health` - Health status
-- `/actuator/info` - Application info
-- `/actuator/metrics` - Prometheus metrics
-- `/actuator/beans` - Spring beans
-
-## 🚢 Deployment
-
-### Docker Images
-
-The project uses multi-stage Docker builds for optimized images:
-
-```bash
-# Build images
-docker build -t pharmacy-user-service -f backend/user-service/Dockerfile .
-docker build -t pharmacy-medicine-service -f backend/medicine-service/Dockerfile .
-docker build -t pharmacy-order-service -f backend/order-service/Dockerfile .
-docker build -t pharmacy-frontend -f frontend/Dockerfile .
-```
-
-### Environment Variables
-
-#### Backend Services
-- `SPRING_DATASOURCE_URL` - PostgreSQL connection URL
-- `SPRING_DATASOURCE_USERNAME` - Database username
-- `SPRING_DATASOURCE_PASSWORD` - Database password
-- `CORS_ALLOWED_ORIGINS` - Allowed CORS origins
-
-#### Order Service (Additional)
-- `SERVICES_USER_SERVICE_URL` - User service URL
-- `SERVICES_MEDICINE_SERVICE_URL` - Medicine service URL
-
-## 🔄 CI/CD Pipeline
-
-The project includes GitHub Actions workflows for automated CI/CD:
-
-### Pipeline Stages
-
-1. **Security Scanning**
-   - Gitleaks: Secret detection
-   - Trivy: Vulnerability scanning (filesystem and images)
-
-2. **Code Build**
-   - Maven build for backend services
-   - npm build for frontend
-
-3. **Docker Build & Push**
-   - Multi-platform builds (amd64, arm64)
-   - Push to Docker Hub
-
-4. **Image Scanning**
-   - Trivy scan on built images
-   - Fail on HIGH/CRITICAL vulnerabilities
-
-5. **GitOps Update**
-   - Update image tags in ArgoCD repository
-   - Trigger automatic deployment
-
-### Workflows
-
-- `frontend-service-ci.yml` - Frontend CI/CD
-- `users-service-ci.yml` - User service CI/CD
-- `medicine-service-ci.yml` - Medicine service CI/CD
-- `order-service-ci.yml` - Order service CI/CD
-
-## 📊 Monitoring
-
-### Prometheus Metrics
-
-All backend services expose Prometheus metrics at `/actuator/metrics`:
-
-- JVM metrics (memory, threads, GC)
-- HTTP request metrics
-- Database connection pool metrics
-- Custom application metrics
-
-### Health Checks
-
-Health endpoints available at `/actuator/health`:
-- Database connectivity
-- Disk space
-- Application status
-
-## 🔒 Security
-
-- **Trivy scanning** for vulnerabilities
-- **Gitleaks** for secret detection
-- **CORS configuration** for cross-origin requests
-- **Input validation** using Jakarta Validation
+- `/actuator/health` - Service health status
+- `/actuator/metrics` - Application metrics
+- `/actuator/prometheus` - Prometheus-formatted metrics
